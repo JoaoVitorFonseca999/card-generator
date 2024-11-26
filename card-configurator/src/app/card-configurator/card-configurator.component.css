@@ -1,0 +1,101 @@
+/* Estilo geral */
+.configurator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .configurator h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    
+  }
+  
+  /* Formulário */
+  form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  input[type="color"] {
+    padding: 4px;
+    height: 40px;
+  }
+  
+  button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .result {
+    /* background-color: #ff0000; */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Área de pré-visualização */
+  .preview {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .preview h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Textareas para o código */
+  textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    resize: none;
+  }
+  

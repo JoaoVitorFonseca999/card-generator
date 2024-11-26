@@ -1,0 +1,28 @@
+<div class="configurator">
+    <form [formGroup]="cardForm" (ngSubmit)="generateCode()">
+      <label for="title">Título do Card:</label>
+      <input id="title" formControlName="title" placeholder="Digite o título" />
+  
+      <label for="width">Largura (px):</label>
+      <input id="width" formControlName="width" type="number" />
+  
+      <label for="height">Altura (px):</label>
+      <input id="height" formControlName="height" type="number" />
+  
+      <label for="bgColor">Cor de Fundo:</label>
+      <input id="bgColor" formControlName="bgColor" type="color" />
+  
+      <button type="submit">Gerar Código </button>
+    </form>
+    <div class="result">
+      <div class="preview" [ngStyle]="cardStyles">
+        <h3>{{ cardForm.value.title }}</h3>
+      </div>
+    </div>
+    <div  class="result" >
+      <textarea readonly>{{ generatedHtml }}</textarea>
+      <textarea readonly>{{ generatedCss }}</textarea>      
+
+    </div>
+  </div>
+  
