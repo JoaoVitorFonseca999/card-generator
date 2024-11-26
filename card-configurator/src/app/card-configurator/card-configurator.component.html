@@ -1,28 +1,42 @@
 <div class="configurator">
-    <form [formGroup]="cardForm" (ngSubmit)="generateCode()">
-      <label for="title">Título do Card:</label>
-      <input id="title" formControlName="title" placeholder="Digite o título" />
-  
-      <label for="width">Largura (px):</label>
-      <input id="width" formControlName="width" type="number" />
-  
-      <label for="height">Altura (px):</label>
-      <input id="height" formControlName="height" type="number" />
-  
-      <label for="bgColor">Cor de Fundo:</label>
-      <input id="bgColor" formControlName="bgColor" type="color" />
-  
-      <button type="submit">Gerar Código </button>
-    </form>
-    <div class="result">
-      <div class="preview" [ngStyle]="cardStyles">
-        <h3>{{ cardForm.value.title }}</h3>
-      </div>
-    </div>
-    <div  class="result" >
-      <textarea readonly>{{ generatedHtml }}</textarea>
-      <textarea readonly>{{ generatedCss }}</textarea>      
+  <form [formGroup]="cardForm" (ngSubmit)="generateCode()">
+    <label for="title">Título do Card:</label>
+    <input id="title" formControlName="title" placeholder="Digite o título" />
 
+    <label for="width">Largura (px):</label>
+    <input id="width" formControlName="width" type="number" />
+
+    <label for="height">Altura (px):</label>
+    <input id="height" formControlName="height" type="number" />
+
+    <label for="bgColor">Cor de Fundo:</label>
+    <input id="bgColor" formControlName="bgColor" type="color" />
+
+    <label for="border">Borda (ex: "1px solid #000"):</label>
+    <input id="border" formControlName="border" placeholder="1px solid #000" />
+
+    <label for="fontSize">Tamanho da Fonte (px):</label>
+    <input id="fontSize" formControlName="fontSize" type="number" />
+
+    <label for="fontColor">Cor da Fonte:</label>
+    <input id="fontColor" formControlName="fontColor" type="color" />
+
+    <label for="bgImage">URL da Imagem de Fundo:</label>
+    <input id="bgImage" formControlName="bgImage" placeholder="Digite o URL da imagem" />
+
+    <button type="submit">Gerar Código</button>
+  </form>
+
+  <div class="result">
+    <div class="preview" [ngStyle]="cardStyles">
+      <h3 [ngStyle]="{ color: cardForm.value.fontColor, fontSize: cardForm.value.fontSize + 'px' }">
+        {{ cardForm.value.title }}
+      </h3>
     </div>
   </div>
-  
+
+  <div class="result">
+    <textarea readonly>{{ generatedHtml }}</textarea>
+    <textarea readonly>{{ generatedCss }}</textarea>
+  </div>
+</div>
