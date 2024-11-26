@@ -3,6 +3,9 @@
     <label for="title">Título do Card:</label>
     <input id="title" formControlName="title" placeholder="Digite o título" />
 
+    <label for="content">Conteúdo do Card:</label>
+    <textarea id="content" formControlName="content" placeholder="Digite o conteúdo"></textarea>
+
     <label for="width">Largura (px):</label>
     <input id="width" formControlName="width" type="number" />
 
@@ -32,6 +35,9 @@
       <h3 [ngStyle]="{ color: cardForm.value.fontColor, fontSize: cardForm.value.fontSize + 'px' }">
         {{ cardForm.value.title }}
       </h3>
+      <p [ngStyle]="{ color: cardForm.value.fontColor, fontSize: (cardForm.value.fontSize - 2) + 'px' }">
+        {{ cardForm.value.content }}
+      </p>
     </div>
   </div>
 

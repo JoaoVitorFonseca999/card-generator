@@ -20,13 +20,14 @@ export class CardConfiguratorComponent {
   constructor(private fb: FormBuilder) {
     this.cardForm = this.fb.group({
       title: ['Título do Card'],
+      content: ['Texto do card'], // Novo campo para o conteúdo
       width: [300],
       height: [200],
       bgColor: ['#ffffff'],
       border: ['1px solid #000'],
       fontSize: [16],
       fontColor: ['#000000'],
-      bgImage: ['']
+      bgImage: [''],
     });
 
     this.cardForm.valueChanges.subscribe((values) => {
@@ -47,9 +48,14 @@ export class CardConfiguratorComponent {
   }
 
   generateCode(): void {
-    const { title, width, height, bgColor, border, fontSize, fontColor, bgImage } = this.cardForm.value;
+    const { title, content, width, height, bgColor, border, fontSize, fontColor, bgImage } = this.cardForm.value;
 
-    this.generatedHtml = `<div class="card"><h3>${title}</h3></div>`;
+    this.generatedHtml = `
+<div class="card">
+  <h3>${title}</h3>
+  <p>${content}</p>
+</div>`;
+
     this.generatedCss = `
 .card {
   width: ${width}px;
@@ -61,6 +67,16 @@ export class CardConfiguratorComponent {
   background-position: center;
   color: ${fontColor};
   font-size: ${fontSize}px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.card h3 {
+  margin: 0 0 8px 0;
+  font-size: ${fontSize}px;
+}
+.card p {
+  margin: 0;
+  font-size: ${fontSize - 2}px;
 }`;
   }
 }
