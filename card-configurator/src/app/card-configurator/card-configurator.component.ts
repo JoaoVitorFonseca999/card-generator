@@ -20,11 +20,12 @@ export class CardConfiguratorComponent {
   constructor(private fb: FormBuilder) {
     this.cardForm = this.fb.group({
       title: ['Título do Card'],
-      content: ['Texto do card'], // Novo campo para o conteúdo
-      width: [300],
-      height: [200],
+      content: ['Texto do card'],
+      width: [300], // Valor inicial para o slider
+      height: [200], // Valor inicial para o slider
       bgColor: ['#ffffff'],
       border: ['1px solid #000'],
+      borderRadius: [8],
       fontSize: [16],
       fontColor: ['#000000'],
       bgImage: [''],
@@ -41,6 +42,7 @@ export class CardConfiguratorComponent {
       height: `${values.height}px`,
       backgroundColor: values.bgColor,
       border: values.border,
+      borderRadius: `${values.borderRadius}px`,
       backgroundImage: values.bgImage ? `url(${values.bgImage})` : 'none',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -48,7 +50,18 @@ export class CardConfiguratorComponent {
   }
 
   generateCode(): void {
-    const { title, content, width, height, bgColor, border, fontSize, fontColor, bgImage } = this.cardForm.value;
+    const {
+      title,
+      content,
+      width,
+      height,
+      bgColor,
+      border,
+      borderRadius,
+      fontSize,
+      fontColor,
+      bgImage,
+    } = this.cardForm.value;
 
     this.generatedHtml = `
 <div class="card">
@@ -62,6 +75,7 @@ export class CardConfiguratorComponent {
   height: ${height}px;
   background-color: ${bgColor};
   border: ${border};
+  border-radius: ${borderRadius}px;
   ${bgImage ? `background-image: url(${bgImage});` : ''}
   background-size: cover;
   background-position: center;

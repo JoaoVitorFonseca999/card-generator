@@ -6,17 +6,44 @@
     <label for="content">Conteúdo do Card:</label>
     <textarea id="content" formControlName="content" placeholder="Digite o conteúdo"></textarea>
 
-    <label for="width">Largura (px):</label>
-    <input id="width" formControlName="width" type="number" />
+    <!-- Slider para Largura -->
+    <label for="width">Largura: {{ cardForm.value.width }}px</label>
+    <input
+      id="width"
+      type="range"
+      formControlName="width"
+      min="100"
+      max="800"
+      step="10"
+    />
 
-    <label for="height">Altura (px):</label>
-    <input id="height" formControlName="height" type="number" />
+    <!-- Slider para Altura -->
+    <label for="height">Altura: {{ cardForm.value.height }}px</label>
+    <input
+      id="height"
+      type="range"
+      formControlName="height"
+      min="100"
+      max="600"
+      step="10"
+    />
 
     <label for="bgColor">Cor de Fundo:</label>
     <input id="bgColor" formControlName="bgColor" type="color" />
 
     <label for="border">Borda (ex: "1px solid #000"):</label>
     <input id="border" formControlName="border" placeholder="1px solid #000" />
+
+    <!-- Slider para Arredondamento das Bordas -->
+    <label for="borderRadius">Arredondamento das Bordas: {{ cardForm.value.borderRadius }}px</label>
+    <input
+      id="borderRadius"
+      type="range"
+      formControlName="borderRadius"
+      min="0"
+      max="50"
+      step="1"
+    />
 
     <label for="fontSize">Tamanho da Fonte (px):</label>
     <input id="fontSize" formControlName="fontSize" type="number" />
